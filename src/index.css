@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-charcoal-950 text-cream-100 antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+@layer components {
+  .section-label {
+    @apply text-gold-400 tracking-[0.2em] uppercase text-xs font-sans font-medium;
+  }
+
+  .section-heading {
+    @apply font-display text-4xl md:text-5xl text-cream-100 leading-tight;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-gold-gradient text-charcoal-950 font-sans font-semibold text-sm tracking-widest uppercase px-8 py-3.5 transition-all duration-300 hover:shadow-[0_0_32px_rgba(212,154,24,0.45)] hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border border-gold-500/60 text-gold-400 font-sans font-medium text-sm tracking-widest uppercase px-8 py-3.5 transition-all duration-300 hover:border-gold-400 hover:text-gold-300 hover:bg-gold-500/5;
+  }
+
+  .divider-ornament {
+    @apply flex items-center gap-4 text-gold-600;
+  }
+
+  .divider-ornament::before,
+  .divider-ornament::after {
+    content: '';
+    @apply flex-1 h-px bg-gradient-to-r from-transparent to-gold-700/60;
+  }
+
+  .divider-ornament::after {
+    @apply bg-gradient-to-l from-transparent to-gold-700/60;
+  }
+}
+
+@layer utilities {
+  .text-shadow-gold {
+    text-shadow: 0 0 40px rgba(212, 154, 24, 0.4);
+  }
+}
