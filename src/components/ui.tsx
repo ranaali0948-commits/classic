@@ -1,5 +1,6 @@
 import type { ButtonHTMLAttributes, ImgHTMLAttributes, ReactNode } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { useLanguage } from '../i18n';
 
 export function SectionHeading({ eyebrow, title, intro, align = 'center' }: { eyebrow: string; title: string; intro?: string; align?: 'center' | 'left' }) {
   return <div className={align === 'center' ? 'section-title text-center mx-auto' : 'section-title'}>
@@ -17,7 +18,13 @@ export function ImageWithFallback({ className = '', ...props }: ImgHTMLAttribute
 }
 
 export function PageHero({ eyebrow, title, text, image }: { eyebrow: string; title: string; text?: string; image?: string }) {
-  return <section className="page-hero"><div className="page-hero-media">{image && <ImageWithFallback src={image} alt="" />}</div><div className="page-hero-overlay" /><div className="container page-hero-content"><p className="section-label">{eyebrow}</p><h1>{title}</h1>{text && <p>{text}</p>}</div></section>;
+  const { pathname } = useLocation();
+  const { t } = useLanguage();
+  const routeKeys = { '/carte': 'menu', '/notre-histoire': 'story', '/galerie': 'gallery', '/reservation': 'reservation', '/contact': 'contact', '/commander': 'order' } as const;
+  const routeKey = routeKeys[pathname as keyof typeof routeKeys];
+  const translated = routeKey ? t.pageHeaders[routeKey] : null;
+  const content = translated ?? [eyebrow, title, text];
+  return <section className="page-hero compact-page-hero" data-has-image={Boolean(image)}><div className="container page-hero-content"><p className="section-label">{content[0]}</p><h1>{content[1]}</h1>{content[2] && <p>{content[2]}</p>}</div></section>;
 }
 
 export function DemoSubmitButton(props: ButtonHTMLAttributes<HTMLButtonElement>) { return <button className="btn btn-primary" type="submit" {...props} />; }
