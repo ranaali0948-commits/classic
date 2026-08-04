@@ -16,5 +16,5 @@ npm run typecheck
 npm run lint
 npm run build
 ```
-
+V2 deployment
 Les photographies définitives doivent être ajoutées selon les indications de `public/images/README.md`.
