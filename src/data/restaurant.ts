@@ -26,6 +26,7 @@ export const restaurant = {
 
 export const imagePaths = {
   hero: '/images/hero-main.webp',
+  homeCinematicHero: '/images/homepage-cinematic-hero.png',
   spices: '/images/spices-banner.webp',
   interior01: '/images/restaurant-interior-01.webp',
   interior02: '/images/restaurant-interior-02.webp',
