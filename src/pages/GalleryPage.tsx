@@ -43,7 +43,7 @@ export default function GalleryPage() {
     <section className="section"><div className="container">
       <div className="gallery-filters">{categories.map(item => <button key={item} className={category === item ? 'active' : ''} onClick={() => { setCategory(item); setSelected(null); }}>{copy.labels[item]}</button>)}</div>
       <div className="gallery-grid">{visible.map((item, index) => <button key={item.src} onClick={() => setSelected(index)} aria-label={`${copy.enlarge} : ${alt(item)}`}>
-        <ImageWithFallback src={item.src} alt={alt(item)} loading="lazy" fallbackLabel={copy.fallback} className={item.src === imagePaths.hero ? 'gallery-food-spread' : ''} />
+        <ImageWithFallback src={item.src} alt={alt(item)} loading="lazy" fallbackLabel={copy.fallback} className={item.src === imagePaths.gallerySpread ? 'gallery-food-spread' : ''} />
         <span>{copy.labels[item.category]}</span>
       </button>)}</div>
     </div></section>

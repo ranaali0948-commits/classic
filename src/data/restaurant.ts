@@ -37,4 +37,13 @@ export const imagePaths = {
   tikka: '/images/poulet-tikka.webp',
   roganJosh: '/images/agneau-rogan-josh.webp',
   palakPaneer: '/images/palak-paneer.webp',
+  galleryFacade: '/images/restaurant-facade.webp',
+  galleryExterior: '/images/owner-photo-01.webp',
+  galleryPrawns: '/images/grilled-prawns.webp',
+  galleryDessert: '/images/house-dessert.webp',
+  gallerySpread: '/images/owner-photo-11.webp',
+  galleryThali: '/images/owner-photo-18.webp',
+  galleryRoom: '/images/owner-photo-20.webp',
+  galleryKebab: '/images/owner-photo-15.webp',
+  galleryDal: '/images/owner-photo-12.webp',
 } as const;
