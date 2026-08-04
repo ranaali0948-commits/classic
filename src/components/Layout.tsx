@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Menu, X, Phone, MapPin } from 'lucide-react';
+import { Menu, X, Phone, MapPin, Sparkles } from 'lucide-react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import { navigation } from '../data/navigation';
 import { restaurant } from '../data/restaurant';
@@ -12,9 +12,9 @@ function Header() {
   useEffect(() => { document.body.style.overflow = open ? 'hidden' : ''; const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false); window.addEventListener('keydown', onKey); return () => { document.body.style.overflow = ''; window.removeEventListener('keydown', onKey); }; }, [open]);
   const solid = location.pathname !== '/' || scrolled || open;
   return <header className={`site-header ${solid ? 'is-solid' : ''}`}><div className="container header-inner">
-    <Link to="/" className="brand" aria-label="Vallée du Kashmir, accueil"><span>Vallée du Kashmir</span><small>Cuisine indienne & pakistanaise</small></Link>
+    <Link to="/" className="brand" aria-label="Vallée du Kashmir, accueil"><Sparkles aria-hidden="true" /><span>Vallée du Kashmir</span><small>Cuisine indienne & pakistanaise · Paris 14e</small></Link>
     <nav className="desktop-nav" aria-label="Navigation principale">{navigation.map(item => <NavLink key={item.to} to={item.to} end={item.to === '/'}>{item.label}</NavLink>)}</nav>
-    <ButtonLink to="/reservation">Réserver</ButtonLink>
+    <div className="header-actions"><ButtonLink to="/reservation">Réserver</ButtonLink><ButtonLink to="/commander" variant="secondary">Commander</ButtonLink></div>
     <button className="menu-toggle" onClick={() => setOpen(value => !value)} aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}>{open ? <X /> : <Menu />}</button>
   </div><div id="mobile-menu" className={`mobile-menu ${open ? 'is-open' : ''}`} aria-hidden={!open}><nav aria-label="Navigation mobile">{navigation.map(item => <NavLink key={item.to} to={item.to} end={item.to === '/'}>{item.label}</NavLink>)}<NavLink to="/reservation">Réserver</NavLink><NavLink to="/commander">Commander</NavLink></nav></div></header>;
 }

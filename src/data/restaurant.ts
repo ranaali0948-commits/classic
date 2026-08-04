@@ -26,15 +26,15 @@ export const restaurant = {
 } as const;
 
 export const imagePaths = {
-  hero: '/images/hero/hero-main.webp',
-  interior01: '/images/restaurant/restaurant-interior-01.webp',
-  interior02: '/images/restaurant/restaurant-interior-02.webp',
-  diningRoom: '/images/restaurant/dining-room.webp',
-  butterChicken: '/images/dishes/butter-chicken.webp',
-  mixedGrill: '/images/dishes/mixed-grill.webp',
-  biryani: '/images/dishes/biryani.webp',
-  naan: '/images/dishes/naan.webp',
-  tikka: '/images/dishes/poulet-tikka.webp',
-  roganJosh: '/images/dishes/agneau-rogan-josh.webp',
-  palakPaneer: '/images/dishes/palak-paneer.webp',
+  hero: '/images/hero-main.webp',
+  interior01: '/images/restaurant-interior-01.webp',
+  interior02: '/images/restaurant-interior-02.webp',
+  diningRoom: '/images/dining-room.webp',
+  butterChicken: '/images/butter-chicken.webp',
+  mixedGrill: '/images/mixed-grill.webp',
+  biryani: '/images/biryani.webp',
+  naan: '/images/naan.webp',
+  tikka: '/images/poulet-tikka.webp',
+  roganJosh: '/images/agneau-rogan-josh.webp',
+  palakPaneer: '/images/palak-paneer.webp',
 } as const;
