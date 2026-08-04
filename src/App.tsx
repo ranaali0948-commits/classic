@@ -1,25 +1,12 @@
-import Nav from './components/Nav';
-import Hero from './components/Hero';
-import MenuSection from './components/MenuSection';
-import About from './components/About';
-import Gallery from './components/Gallery';
-import Reviews from './components/Reviews';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Layout from './components/Layout';
+import HomePage from './pages/HomePage';
+import MenuPage from './pages/MenuPage';
+import StoryPage from './pages/StoryPage';
+import GalleryPage from './pages/GalleryPage';
+import ReservationPage from './pages/ReservationPage';
+import ContactPage from './pages/ContactPage';
+import OrderPage from './pages/OrderPage';
+import NotFoundPage from './pages/NotFoundPage';
 
-export default function App() {
-  return (
-    <div className="min-h-screen bg-charcoal-950">
-      <Nav />
-      <main>
-        <Hero />
-        <MenuSection />
-        <About />
-        <Gallery />
-        <Reviews />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
-  );
-}
+export default function App() { return <BrowserRouter><Routes><Route element={<Layout />}><Route path="/" element={<HomePage />} /><Route path="/carte" element={<MenuPage />} /><Route path="/notre-histoire" element={<StoryPage />} /><Route path="/galerie" element={<GalleryPage />} /><Route path="/reservation" element={<ReservationPage />} /><Route path="/contact" element={<ContactPage />} /><Route path="/commander" element={<OrderPage />} /><Route path="*" element={<NotFoundPage />} /></Route></Routes></BrowserRouter>; }
