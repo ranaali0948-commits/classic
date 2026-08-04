@@ -6,6 +6,7 @@ import { restaurant } from '../data/restaurant';
 import { BRAND_NAME } from '../data/brand';
 import { ButtonLink } from './ui';
 import { useLanguage } from '../i18n';
+import HomeHeader from './HomeHeader';
 
 function LanguageSwitcher({ mobile = false }: { mobile?: boolean }) {
   const { language, setLanguage } = useLanguage();
@@ -30,4 +31,8 @@ function Header() {
 
 function Footer() { const { language, t } = useLanguage(); return <footer className="site-footer"><div className="container footer-grid"><div><Link className="footer-brand notranslate" translate="no" to="/">{BRAND_NAME}</Link><p>{language === 'fr' ? 'Cuisine indienne & pakistanaise à Paris, à deux pas de Montparnasse.' : 'Indian & Pakistani cuisine in Paris, steps from Montparnasse.'}</p></div><div><h2>Navigation</h2>{navigation.map((item, index) => <Link key={item.to} to={item.to}>{t.nav[index]}</Link>)}</div><div><h2>{language === 'fr' ? 'Nous trouver' : 'Find us'}</h2><a href={restaurant.mapUrl} target="_blank" rel="noreferrer"><MapPin size={16} /><span className="notranslate" translate="no">{restaurant.address.full}</span></a><a href={restaurant.phone.href}><Phone size={16} /><span className="notranslate" translate="no">{restaurant.phone.display}</span></a></div><div><h2>{language === 'fr' ? 'Votre visite' : 'Your visit'}</h2><Link to="/reservation">{language === 'fr' ? 'Réserver une table' : 'Book a table'}</Link><Link to="/commander">{t.actions.order}</Link><span className="social-note">{language === 'fr' ? 'Réseaux sociaux à venir' : 'Social media coming soon'}</span></div></div><div className="container footer-bottom"><span>© {new Date().getFullYear()} <span className="notranslate" translate="no">{BRAND_NAME}</span></span><span><a href="#mentions-legales">{language === 'fr' ? 'Mentions légales' : 'Legal notice'}</a><a href="#confidentialite">{language === 'fr' ? 'Politique de confidentialité' : 'Privacy policy'}</a></span></div></footer>; }
 
-export default function Layout() { return <><Header /><main><Outlet /></main><Footer /></>; }
+export default function Layout() {
+  const { pathname } = useLocation();
+  const isHome = pathname === '/';
+  return <>{isHome ? <HomeHeader /> : <Header />}<main><Outlet /></main>{!isHome && <Footer />}</>;
+}
