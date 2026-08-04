@@ -1,6 +1,6 @@
-# Vallée du Kashmir — démonstration web
+# Démonstration web du restaurant
 
-Site vitrine React + Vite pour Vallée du Kashmir, restaurant indien et pakistanais situé au 10 Rue d’Odessa, Paris 14e.
+Site vitrine React + Vite pour le restaurant indien et pakistanais situé au 10 Rue d’Odessa, Paris 14e. Le nom de marque est défini uniquement dans `src/data/brand.ts`.
 
 ## Développement
 

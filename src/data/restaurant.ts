@@ -1,5 +1,4 @@
 export const restaurant = {
-  brandName: 'Vallée du Kashmir',
   subtitle: 'Cuisine indienne & pakistanaise à Paris',
   address: {
     street: "10 Rue d’Odessa",

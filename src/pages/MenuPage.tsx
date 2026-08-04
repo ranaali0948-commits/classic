@@ -30,7 +30,7 @@ export default function MenuPage() {
     return category ? category[language] : categoryId;
   };
   const visible = useMemo(() => menuItems.filter(item => {
-    const name = language === 'fr' ? item.name : item.nameEn;
+    const name = language === 'fr' ? item.name : item.englishName;
     const description = language === 'fr' ? item.descriptionFr : item.descriptionEn;
     return (activeCategory === 'all' || item.categoryId === activeCategory)
       && (!search || `${name} ${description}`.toLowerCase().includes(search.toLowerCase()))
@@ -47,7 +47,7 @@ export default function MenuPage() {
       </aside>
       <div>
         <div className="menu-tools"><label className="search-field"><Search /><span className="sr-only">{copy.search}</span><input value={search} onChange={event => setSearch(event.target.value)} placeholder={`${copy.search}…`} /></label><div className="filter-row" aria-label={copy.filters}>{filters.map(filter => <button aria-pressed={activeFilters.includes(filter.value)} onClick={() => toggleFilter(filter.value)} key={filter.value}>{filter[language]}</button>)}</div></div>
-        <div className="menu-results" aria-live="polite">{visible.length ? visible.map(item => <article key={item.id}><div><p className="menu-category-label">{categoryName(item.categoryId)}</p><h2>{language === 'fr' ? item.name : item.nameEn}</h2><p>{language === 'fr' ? item.descriptionFr : item.descriptionEn}</p><div className="tag-row">{item.tags?.map(tag => <span key={tag}>{filters.find(filter => filter.value === tag)?.[language]}</span>)}</div></div>{item.price !== undefined && <strong>{new Intl.NumberFormat(language === 'fr' ? 'fr-FR' : 'en-GB', { style: 'currency', currency: 'EUR' }).format(item.price)}</strong>}</article>) : <div className="empty-state"><h2>{copy.empty}</h2><p>{copy.retry}</p><button onClick={() => { setSearch(''); setActiveCategory('all'); setActiveFilters([]); }}>{copy.reset}</button></div>}</div>
+        <div className="menu-results" aria-live="polite">{visible.length ? visible.map(item => <article key={item.id}><div><p className="menu-category-label">{categoryName(item.categoryId)}</p><h2>{language === 'fr' ? item.name : item.englishName}</h2><p>{language === 'fr' ? item.descriptionFr : item.descriptionEn}</p><div className="tag-row">{item.tags?.map(tag => <span key={tag}>{filters.find(filter => filter.value === tag)?.[language]}</span>)}</div></div>{item.price !== undefined && <strong>{new Intl.NumberFormat(language === 'fr' ? 'fr-FR' : 'en-GB', { style: 'currency', currency: 'EUR' }).format(item.price)}</strong>}</article>) : <div className="empty-state"><h2>{copy.empty}</h2><p>{copy.retry}</p><button onClick={() => { setSearch(''); setActiveCategory('all'); setActiveFilters([]); }}>{copy.reset}</button></div>}</div>
       </div>
     </div></section>
     <section className="inline-cta"><div className="container"><h2>{copy.cta}</h2><div className="button-row"><ButtonLink to="/commander">{copy.order}</ButtonLink><ButtonLink to="/reservation" variant="secondary">{copy.reserve}</ButtonLink></div></div></section>
