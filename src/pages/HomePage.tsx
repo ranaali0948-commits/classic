@@ -3,6 +3,7 @@ import { imagePaths } from '../data/restaurant';
 import { FinalCta, GalleryPreview, HomeMenuPreview, HomeStory, ReviewsSection, SignatureDishes, VisitSection } from '../components/Sections';
 import { ButtonLink, ImageWithFallback } from '../components/ui';
 import { useLanguage } from '../i18n';
+import { BRAND_NAME } from '../data/brand';
 
 export default function HomePage() {
   const { language, t } = useLanguage();
@@ -11,6 +12,12 @@ export default function HomePage() {
       <ImageWithFallback src={imagePaths.hero} alt={language === 'fr' ? 'Table de spécialités indiennes et pakistanaises' : 'Table of Indian and Pakistani specialities'} />
       <div className="hero-photo-shade" />
       <div className="container hero-overlay-wrap">
+        <div className="hero-v2-copy">
+          <p className="section-label">{t.hero.eyebrow}</p>
+          <h1 className="notranslate" translate="no">{BRAND_NAME}</h1>
+          <p className="hero-subtitle">{t.hero.subtitle}</p>
+          <p>{t.hero.text}</p>
+        </div>
         <div className="hero-floating-ctas is-left">
           <ButtonLink to="/reservation">{t.hero.reserve}</ButtonLink>
           <ButtonLink to="/carte" variant="secondary">{t.hero.menu}</ButtonLink>

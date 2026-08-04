@@ -13,8 +13,8 @@ export function ButtonLink({ to, children, variant = 'primary' }: { to: string; 
   return to.startsWith('http') || to.startsWith('tel:') ? <a href={to} className={className} target={to.startsWith('http') ? '_blank' : undefined} rel="noreferrer">{children}</a> : <Link to={to} className={className}>{children}</Link>;
 }
 
-export function ImageWithFallback({ className = '', ...props }: ImgHTMLAttributes<HTMLImageElement>) {
-  return <span className={`image-shell ${className}`}><img {...props} onError={(event) => { event.currentTarget.hidden = true; event.currentTarget.parentElement?.classList.add('is-fallback'); }} /></span>;
+export function ImageWithFallback({ className = '', fallbackLabel, ...props }: ImgHTMLAttributes<HTMLImageElement> & { fallbackLabel?: string }) {
+  return <span className={`image-shell ${className}`} data-fallback-label={fallbackLabel}><img {...props} onError={(event) => { event.currentTarget.hidden = true; event.currentTarget.parentElement?.classList.add('is-fallback'); }} /></span>;
 }
 
 export function PageHero({ eyebrow, title, text, image }: { eyebrow: string; title: string; text?: string; image?: string }) {

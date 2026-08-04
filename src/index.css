@@ -94,3 +94,47 @@ body{background:var(--color-cream);color:var(--color-charcoal);font-family:'Popp
 @media(max-width:1100px){.header-inner{grid-template-columns:minmax(205px,.8fr) minmax(330px,1.15fr) auto}.header-actions{gap:7px}.language-toggle{margin-left:3px}.contact-location-panel{padding-inline:30px}.contact-form-layout{gap:48px}}
 @media(max-width:900px){.language-toggle.is-mobile{display:block;margin:4px 8px 18px}.contact-location-grid,.contact-form-layout{grid-template-columns:1fr}.contact-location-grid{gap:18px}.contact-map iframe{min-height:430px}.contact-form-layout{gap:42px}}
 @media(max-width:620px){.contact-location-section{padding:42px 0}.contact-location-panel{padding:30px 22px}.contact-map iframe{height:340px;min-height:340px}.contact-map>a{text-align:left}.contact-form-section{padding:65px 0}.contact-form{grid-template-columns:1fr;padding:24px 18px}.contact-form label,.contact-form .full-field,.contact-form .btn,.contact-form .demo-message{grid-column:1}.contact-form .btn{width:100%}.contact-final-cta .button-row{width:100%}}
+
+/* V2 client-demo finishing pass */
+.home-hero>.image-shell img{object-fit:cover;object-position:center 50%}
+.hero-photo-shade{background:linear-gradient(90deg,rgba(58,17,24,.68) 0%,rgba(58,17,24,.35) 30%,rgba(58,17,24,.05) 60%,transparent 78%),linear-gradient(0deg,rgba(58,17,24,.3),transparent 42%)}
+.hero-v2-copy{position:absolute;left:0;bottom:105px;width:min(520px,calc(100% - 32px));color:var(--color-warm-white);text-shadow:0 2px 12px rgba(58,17,24,.55)}
+.hero-v2-copy::before{content:'';display:block;width:62px;height:1px;margin-bottom:16px;background:var(--color-gold)}
+.hero-v2-copy .section-label{margin-bottom:8px;color:var(--color-gold)}
+.hero-v2-copy h1{margin:0 0 7px;color:var(--color-warm-white);font-size:clamp(3.25rem,5.3vw,4.6rem);line-height:.96}
+.hero-v2-copy .hero-subtitle{margin-bottom:11px;color:var(--color-cream)}
+.hero-v2-copy>p:last-child{max-width:500px;margin:0;color:var(--color-warm-white);font-size:.91rem;line-height:1.55}
+.hero-floating-ctas{bottom:25px}
+
+.menu-demo-section{background:var(--color-cream)}
+.menu-demo-intro{display:grid;grid-template-columns:minmax(0,1fr) 320px;align-items:stretch;min-height:150px;margin-bottom:38px;overflow:hidden;background:var(--color-warm-white);border:1px solid var(--color-beige)}
+.menu-demo-intro>p{align-self:center;margin:0;padding:28px 36px;color:var(--color-charcoal);font:500 1rem/1.7 'Poppins',sans-serif}
+.menu-demo-intro>.image-shell{height:150px;background:var(--color-beige)}
+.menu-demo-intro>.image-shell img{object-fit:cover;object-position:center}
+
+.gallery-page .gallery-grid .image-shell.is-fallback::after{content:attr(data-fallback-label)}
+.gallery-page .gallery-food-spread img{object-position:center 31%}
+.lightbox .image-shell.is-fallback::after{content:attr(data-fallback-label)}
+
+@media(max-width:900px){
+  .header-actions{display:none}
+  .menu-toggle{display:flex}
+  .hero-v2-copy{bottom:102px;width:min(500px,calc(100% - 32px))}
+  .menu-demo-intro{grid-template-columns:minmax(0,1fr) 260px}
+}
+
+@media(max-width:620px){
+  .home-hero>.image-shell{height:300px}
+  .home-hero>.image-shell img{object-position:center 42%}
+  .hero-photo-shade{top:72px;height:300px;background:linear-gradient(0deg,rgba(58,17,24,.26),transparent 54%)}
+  .hero-v2-copy{position:static;width:100%;padding:20px 24px 14px;background:var(--color-burgundy);text-shadow:none}
+  .hero-v2-copy::before{margin-bottom:11px}
+  .hero-v2-copy h1{font-size:clamp(2.4rem,11vw,2.8rem)}
+  .hero-v2-copy>p:last-child{font-size:.88rem;line-height:1.5}
+  .hero-floating-ctas,.hero-floating-ctas.is-left{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;gap:9px;width:100%;padding:0 24px 22px}
+  .hero-floating-ctas .btn{width:100%;min-width:0;padding-inline:8px;white-space:normal}
+  .hero-floating-ctas .hero-order-link{grid-column:1/-1;width:auto;justify-content:flex-start;margin-top:2px}
+  .menu-demo-intro{grid-template-columns:1fr;margin-bottom:28px}
+  .menu-demo-intro>p{padding:24px 22px}
+  .menu-demo-intro>.image-shell{height:145px}
+}
