@@ -4,13 +4,12 @@ import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import { navigation } from '../data/navigation';
 import { restaurant } from '../data/restaurant';
 import { ButtonLink } from './ui';
-import { useLanguage, type Language } from '../i18n';
+import { useLanguage } from '../i18n';
 
 function LanguageSwitcher({ mobile = false }: { mobile?: boolean }) {
   const { language, setLanguage } = useLanguage();
-  return <div className={`language-switcher ${mobile ? 'is-mobile' : ''}`} role="group" aria-label="Choisir la langue">
-    {(['fr', 'en'] as Language[]).map(option => <button key={option} type="button" className={language === option ? 'active' : ''} aria-pressed={language === option} aria-label={option === 'fr' ? 'Afficher le site en français' : 'Show the website in English'} onClick={() => setLanguage(option)}>{option.toUpperCase()}</button>)}
-  </div>;
+  const nextLanguage = language === 'fr' ? 'en' : 'fr';
+  return <button className={`language-toggle is-${language} ${mobile ? 'is-mobile' : ''}`} type="button" role="switch" aria-checked={language === 'en'} aria-label={language === 'fr' ? 'Afficher le site en anglais' : 'Afficher le site en français'} onClick={() => setLanguage(nextLanguage)}><span className="language-toggle-label is-fr">FR</span><span className="language-toggle-label is-en">EN</span><span className="language-toggle-thumb" aria-hidden="true" /></button>;
 }
 
 function Header() {
@@ -23,7 +22,7 @@ function Header() {
   return <header className={`site-header ${solid ? 'is-solid' : ''}`}><div className="container header-inner">
     <Link to="/" className="brand" aria-label={`${restaurant.name}, ${language === 'fr' ? 'accueil' : 'home'}`}><Sparkles aria-hidden="true" /><span>{restaurant.name}</span><small>{language === 'fr' ? 'Cuisine indienne & pakistanaise · Paris 14e' : 'Indian & Pakistani cuisine · Paris 14th'}</small></Link>
     <nav className="desktop-nav" aria-label={language === 'fr' ? 'Navigation principale' : 'Main navigation'}>{navigation.map((item, index) => <NavLink key={item.to} to={item.to} end={item.to === '/'}>{t.nav[index]}</NavLink>)}</nav>
-    <div className="header-actions"><LanguageSwitcher /><ButtonLink to="/reservation">{t.actions.reserve}</ButtonLink><ButtonLink to="/commander" variant="secondary">{t.actions.order}</ButtonLink></div>
+    <div className="header-actions"><ButtonLink to="/reservation">{t.actions.reserve}</ButtonLink><ButtonLink to="/commander" variant="secondary">{t.actions.order}</ButtonLink><LanguageSwitcher /></div>
     <button className="menu-toggle" onClick={() => setOpen(value => !value)} aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}>{open ? <X /> : <Menu />}</button>
   </div><div id="mobile-menu" className={`mobile-menu ${open ? 'is-open' : ''}`} aria-hidden={!open}><nav aria-label={language === 'fr' ? 'Navigation mobile' : 'Mobile navigation'}><LanguageSwitcher mobile />{navigation.map((item, index) => <NavLink key={item.to} to={item.to} end={item.to === '/'}>{t.nav[index]}</NavLink>)}<NavLink to="/reservation">{t.actions.reserve}</NavLink><NavLink to="/commander">{t.actions.order}</NavLink></nav></div></header>;
 }
