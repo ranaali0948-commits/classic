@@ -1,14 +1,12 @@
-import { imagePaths } from './restaurant';
-
 export type GalleryCategory = 'dishes' | 'room' | 'atmosphere' | 'presentation';
 export const galleryItems = [
-  { src: imagePaths.galleryFacade, altFr: 'Façade illuminée de Vallée du Kashmir', altEn: 'The illuminated Vallée du Kashmir storefront', category: 'atmosphere' as const },
-  { src: imagePaths.gallerySpread, altFr: 'Grand assortiment de spécialités de la maison', altEn: 'A generous spread of house specialities', category: 'dishes' as const },
-  { src: imagePaths.galleryRoom, altFr: 'Salle colorée dressée pour le service', altEn: 'The colourful dining room set for service', category: 'room' as const },
-  { src: imagePaths.galleryPrawns, altFr: 'Crevettes grillées accompagnées de sauces maison', altEn: 'Grilled prawns served with house sauces', category: 'dishes' as const },
-  { src: imagePaths.galleryThali, altFr: 'Thali généreux au riz basmati', altEn: 'A generous thali with basmati rice', category: 'presentation' as const },
-  { src: imagePaths.galleryKebab, altFr: 'Brochettes grillées et garniture fraîche', altEn: 'Grilled kebabs with a fresh garnish', category: 'dishes' as const },
-  { src: imagePaths.galleryDal, altFr: 'Plat mijoté servi avec ses sauces', altEn: 'A slow-cooked dish served with sauces', category: 'presentation' as const },
-  { src: imagePaths.galleryExterior, altFr: 'Entrée du restaurant à Montparnasse', altEn: 'The restaurant entrance in Montparnasse', category: 'atmosphere' as const },
-  { src: imagePaths.galleryDessert, altFr: 'Assortiment glacé et gourmand', altEn: 'A colourful frozen dessert selection', category: 'presentation' as const },
+  { id: 'facade', altFr: 'L’accueil de Vallée du Kashmir', altEn: 'The Vallée du Kashmir welcome', category: 'atmosphere' as const },
+  { id: 'spread', altFr: 'Les spécialités de la maison', altEn: 'House specialities', category: 'dishes' as const },
+  { id: 'room', altFr: 'Une salle chaleureuse', altEn: 'A warm dining room', category: 'room' as const },
+  { id: 'tandoor', altFr: 'Le savoir-faire du tandoor', altEn: 'Tandoor craft', category: 'dishes' as const },
+  { id: 'table', altFr: 'L’art de recevoir', altEn: 'The art of hospitality', category: 'presentation' as const },
+  { id: 'spices', altFr: 'Épices et traditions', altEn: 'Spices and traditions', category: 'dishes' as const },
+  { id: 'details', altFr: 'Les détails de la maison', altEn: 'Details of the house', category: 'presentation' as const },
+  { id: 'montparnasse', altFr: 'Au cœur de Montparnasse', altEn: 'In the heart of Montparnasse', category: 'atmosphere' as const },
+  { id: 'dessert', altFr: 'La touche gourmande', altEn: 'A sweet finishing touch', category: 'presentation' as const },
 ];

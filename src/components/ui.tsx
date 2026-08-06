@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes, ImgHTMLAttributes, ReactNode } from 'react';
+import type { ButtonHTMLAttributes, ReactNode } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../i18n';
 
@@ -13,18 +13,18 @@ export function ButtonLink({ to, children, variant = 'primary' }: { to: string; 
   return to.startsWith('http') || to.startsWith('tel:') ? <a href={to} className={className} target={to.startsWith('http') ? '_blank' : undefined} rel="noreferrer">{children}</a> : <Link to={to} className={className}>{children}</Link>;
 }
 
-export function ImageWithFallback({ className = '', fallbackLabel, ...props }: ImgHTMLAttributes<HTMLImageElement> & { fallbackLabel?: string }) {
-  return <span className={`image-shell ${className}`} data-fallback-label={fallbackLabel}><img {...props} onError={(event) => { event.currentTarget.hidden = true; event.currentTarget.parentElement?.classList.add('is-fallback'); }} /></span>;
+export function DecorativePanel({ className = '', label, index }: { className?: string; label?: string; index?: string | number }) {
+  return <div className={`decorative-panel ${className}`} aria-label={label}><span aria-hidden="true" className="decorative-panel-arch"><i /><i /><b>✦</b></span>{index !== undefined && <small aria-hidden="true">{String(index).padStart(2, '0')}</small>}</div>;
 }
 
-export function PageHero({ eyebrow, title, text, image }: { eyebrow: string; title: string; text?: string; image?: string }) {
+export function PageHero({ eyebrow, title, text }: { eyebrow: string; title: string; text?: string }) {
   const { pathname } = useLocation();
   const { t } = useLanguage();
   const routeKeys = { '/carte': 'menu', '/notre-histoire': 'story', '/galerie': 'gallery', '/reservation': 'reservation', '/contact': 'contact', '/commander': 'order' } as const;
   const routeKey = routeKeys[pathname as keyof typeof routeKeys];
   const translated = routeKey ? t.pageHeaders[routeKey] : null;
   const content = translated ?? [eyebrow, title, text];
-  return <section className="page-hero compact-page-hero" data-has-image={Boolean(image)}><div className="container page-hero-content"><p className="section-label">{content[0]}</p><h1>{content[1]}</h1>{content[2] && <p>{content[2]}</p>}</div></section>;
+  return <section className="page-hero compact-page-hero"><span className="page-hero-ornament" aria-hidden="true">✦</span><div className="container page-hero-content"><p className="section-label">{content[0]}</p><h1>{content[1]}</h1>{content[2] && <p>{content[2]}</p>}</div></section>;
 }
 
 export function DemoSubmitButton(props: ButtonHTMLAttributes<HTMLButtonElement>) { return <button className="btn btn-primary" type="submit" {...props} />; }

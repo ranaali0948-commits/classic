@@ -1,8 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Search } from 'lucide-react';
 import { menuCategories, menuItems, type DietaryTag, type MenuCategoryId } from '../data/menu';
-import { imagePaths } from '../data/restaurant';
-import { ButtonLink, ImageWithFallback, PageHero } from '../components/ui';
+import { ButtonLink, DecorativePanel, PageHero } from '../components/ui';
 import { useLanguage } from '../i18n';
 import { DEMO_MODE } from '../config/demo';
 
@@ -43,8 +42,8 @@ export default function MenuPage() {
   const toggleFilter = (tag: DietaryTag) => setActiveFilters(current => current.includes(tag) ? current.filter(value => value !== tag) : [...current, tag]);
 
   return <>
-    <PageHero eyebrow="La carte" title="Des plats généreux et parfumés" image={imagePaths.mixedGrill} />
-    <section className="section menu-demo-section"><div className="container"><div className="menu-demo-intro"><p>{copy.notice}</p><ImageWithFallback src={imagePaths.spices} alt={copy.spicesAlt} loading="lazy" /></div><div className="menu-layout">
+    <PageHero eyebrow="La carte" title="Des plats généreux et parfumés" />
+    <section className="section menu-demo-section"><div className="container"><div className="menu-demo-intro"><p>{copy.notice}</p><DecorativePanel className="menu-spice-panel" label={copy.spicesAlt} /></div><div className="menu-layout">
       <aside className="menu-categories" aria-label={copy.categories}>
         <button className={activeCategory === 'all' ? 'active' : ''} onClick={() => setActiveCategory('all')}>{copy.all}</button>
         {displayedCategories.map(category => <button key={category.id} className={activeCategory === category.id ? 'active' : ''} onClick={() => setActiveCategory(category.id)}>{category[language]}</button>)}
