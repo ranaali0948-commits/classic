@@ -29,7 +29,7 @@ export default function HomePage() {
   const motionProps = reduceMotion ? {} : reveal;
   return <div className="home-approval">
     <section className="home-approval-hero home-approval-hero-cinematic">
-      <img className="home-approval-hero-photo" src="/images/hero-main.jpg" alt="" aria-hidden="true" />
+      <img className="home-approval-hero-photo" src="/images/hero-main.png" alt="" aria-hidden="true" />
       <div className="home-approval-hero-shade" aria-hidden="true" />
       <motion.div className="home-approval-hero-copy-cinematic" initial={reduceMotion ? false : { opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8, delay: .28 }}>
         <p className="home-approval-kicker">{c.heroEyebrow}</p><h1>{c.heroTitle}</h1><p>{c.heroNote}</p>

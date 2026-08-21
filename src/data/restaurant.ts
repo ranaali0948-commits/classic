@@ -25,7 +25,7 @@ export const restaurant = {
 } as const;
 
 export const imagePaths = {
-  hero: '/images/hero-main.jpg',
+  hero: '/images/hero-main.png',
   interior01: '/images/restaurant-interior-01.webp',
   interior02: '/images/restaurant-interior-02.webp',
   diningRoom: '/images/dining-room.webp',
