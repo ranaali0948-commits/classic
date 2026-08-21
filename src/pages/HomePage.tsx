@@ -18,11 +18,11 @@ export default function HomePage() {
   const { language } = useLanguage();
   const reduceMotion = useReducedMotion();
   const c = language === 'fr' ? {
-    reserve: 'Réserver une table', order: 'Commander en ligne', heroEyebrow: 'Paris 14e · Montparnasse', heroTitle: 'Une table chaleureuse, des saveurs généreuses', heroNote: 'Cuisine indienne & pakistanaise, délicatement épicée et servie avec cœur.',
+    reserve: 'Réserver une table', order: 'Découvrir la carte', heroEyebrow: 'Saveurs du Cachemire', heroTitle: BRAND_NAME, heroNote: 'Entre lacs scintillants et montagnes majestueuses, la tradition culinaire du Cachemire s’invite à votre table.',
     dishesKicker: 'Les signatures', dishesTitle: 'Des plats qui racontent une histoire', dishesIntro: 'Tandoor, currys parfumés et recettes de partage composent une carte généreuse, entre traditions indiennes et pakistanaises.', storyKicker: 'L’esprit de la maison', storyTitle: 'Une cuisine de partage, façonnée par la tradition', story: `À ${BRAND_NAME}, les cuissons lentes, le tandoor et les épices composent une cuisine vivante. Chaque service célèbre la générosité et l’hospitalité au cœur de Montparnasse.`, storyLink: 'Découvrir notre histoire',
     galleryKicker: 'L’univers', galleryTitle: 'Une atmosphère à découvrir', galleryIntro: 'Découvrez les gestes, les détails de la salle et les assiettes qui font l’identité de la maison.', galleryLink: 'Voir la galerie', finalKicker: 'Votre table à Montparnasse', finalTitle: 'Venez partager un moment généreux', finalText: 'Réservez votre table ou contactez-nous pour préparer votre visite.', contact: 'Nous contacter', footer: 'Cuisine indienne & pakistanaise · Paris 14e'
   } : {
-    reserve: 'Book a table', order: 'Order online', heroEyebrow: 'Paris 14th · Montparnasse', heroTitle: 'A warm table, generous flavours', heroNote: 'Indian & Pakistani cuisine, delicately spiced and served with heart.',
+    reserve: 'Book a table', order: 'Discover the menu', heroEyebrow: 'Flavours of Kashmir', heroTitle: BRAND_NAME, heroNote: 'Between shimmering lakes and majestic mountains, Kashmir’s culinary tradition is invited to your table.',
     dishesKicker: 'Signatures', dishesTitle: 'Dishes that tell a story', dishesIntro: 'Tandoor cooking, fragrant curries and recipes made for sharing shape a generous Indian and Pakistani menu.', storyKicker: 'The spirit of the house', storyTitle: 'Food for sharing, shaped by tradition', story: `At ${BRAND_NAME}, slow cooking, the tandoor and fragrant spices create vibrant cuisine. Every service celebrates generosity and hospitality in the heart of Montparnasse.`, storyLink: 'Discover our story',
     galleryKicker: 'The experience', galleryTitle: 'An atmosphere to discover', galleryIntro: 'Discover the craft, dining-room details and dishes that give the restaurant its character.', galleryLink: 'View the gallery', finalKicker: 'Your table in Montparnasse', finalTitle: 'Come and share a generous moment', finalText: 'Book your table or contact us to plan your visit.', contact: 'Contact us', footer: 'Indian & Pakistani cuisine · Paris 14th'
   };
@@ -35,8 +35,8 @@ export default function HomePage() {
         <p className="home-approval-kicker">{c.heroEyebrow}</p><h1>{c.heroTitle}</h1><p>{c.heroNote}</p>
       </motion.div>
       <div className="home-approval-hero-ctas"><motion.div className="home-approval-hero-cta-buttons" initial={reduceMotion ? false : { opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .7, delay: .55 }}>
-        <Link className="home-approval-button is-gold" to="/commander">{c.order}</Link>
-        <Link className="home-approval-button is-outline" to="/reservation">{c.reserve}</Link>
+        <Link className="home-approval-button is-gold" to="/reservation">{c.reserve}</Link>
+        <Link className="home-approval-button is-outline" to="/carte">{c.order}</Link>
       </motion.div></div>
       <a className="home-approval-scroll-cue" href="#signature-dishes" aria-label={language === 'fr' ? 'Découvrir la suite' : 'Explore the page'}><span /><ArrowDown /></a>
     </section>
