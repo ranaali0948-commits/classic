@@ -278,7 +278,7 @@ body{background:var(--lumi-blush);color:var(--lumi-ink)}
   .home-approval-header-inner{height:82px}
   .home-approval-brand>a{padding-block:8px}
   .home-approval-hero.home-approval-hero-cinematic{height:590px;min-height:590px;max-height:590px}
-  .home-approval-hero-photo{object-position:center bottom}
+  .home-approval-hero-photo{object-position:center 52%}
   .home-approval-hero-shade{background:linear-gradient(90deg,rgba(38,29,31,.68),rgba(38,29,31,.32) 42%,rgba(38,29,31,.04) 70%),linear-gradient(0deg,rgba(38,29,31,.18),transparent 45%)}
   .home-approval-hero-copy-cinematic{left:max(7vw,58px);bottom:137px;width:min(500px,42vw);padding:0;border:0;border-radius:0;background:transparent;backdrop-filter:none;box-shadow:none}
   .home-approval-hero-copy-cinematic .home-approval-kicker{margin-bottom:12px;color:var(--lumi-gold);text-shadow:0 2px 14px rgba(32,24,26,.35)}
