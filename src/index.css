@@ -272,7 +272,7 @@ body{background:var(--lumi-blush);color:var(--lumi-ink)}
   .home-approval-hero-copy-cinematic .home-approval-kicker{margin-bottom:10px;color:var(--lumi-gold);font-size:.69rem;text-shadow:0 2px 14px rgba(32,24,26,.4)}
   .home-approval .home-approval-hero-copy-cinematic h1{max-width:320px;color:#fffaf7;font-size:clamp(2.25rem,11vw,2.78rem);line-height:1.01;text-shadow:0 3px 20px rgba(32,24,26,.48)}
   .home-approval-hero-copy-cinematic>p:last-child{max-width:330px;margin-top:10px;color:#fffaf7;font-size:clamp(.92rem,4vw,1rem);line-height:1.48;text-shadow:0 2px 14px rgba(32,24,26,.48)}
-  .home-approval-hero-ctas{display:none}
+  .home-approval-hero-ctas{position:absolute;z-index:1;left:20px;right:20px;bottom:20px;width:auto;margin:0}
   .home-approval-hero-cta-buttons{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
   .home-approval-hero-ctas .home-approval-button{width:100%;min-height:52px;padding-inline:8px;border-radius:13px;font-size:.6rem;letter-spacing:.08em}
   .home-approval-scroll-cue{display:none}
