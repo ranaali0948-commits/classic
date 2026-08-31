@@ -29,11 +29,8 @@ export default function HomePage() {
   const motionProps = reduceMotion ? {} : reveal;
   return <div className="home-approval">
     <section className="home-approval-hero home-approval-hero-cinematic">
-      <img className="home-approval-hero-photo" src="/images/hero-main.png" alt="" aria-hidden="true" />
+      <img className="home-approval-hero-photo" src="/images/hero-main.jpeg" alt="" aria-hidden="true" />
       <div className="home-approval-hero-shade" aria-hidden="true" />
-      <motion.div className="home-approval-hero-copy-cinematic" initial={reduceMotion ? false : { opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8, delay: .28 }}>
-        <p className="home-approval-kicker">{c.heroEyebrow}</p><h1>{c.heroTitle}</h1><p>{c.heroNote}</p>
-      </motion.div>
       <div className="home-approval-hero-ctas"><motion.div className="home-approval-hero-cta-buttons" initial={reduceMotion ? false : { opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .7, delay: .55 }}>
         <Link className="home-approval-button is-gold" to="/reservation">{c.reserve}</Link>
         <Link className="home-approval-button is-outline" to="/carte">{c.order}</Link>
